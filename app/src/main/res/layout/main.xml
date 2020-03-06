@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/mainScrollView"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/background">
+	
+	<RelativeLayout
+		android:id="@+id/rootRelativeLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#FEFEFE">
+
+		<RelativeLayout
+			android:id="@+id/mainRelativeLayout"
+			android:layout_width="match_parent"
+			android:layout_height="55dp"
+			android:background="@color/gray"
+			android:layout_alignParentTop="true">
+
+			<TextView
+				android:id="@+id/file_name_text"
+				android:layout_width="210dp"
+				android:layout_height="wrap_content"
+				android:singleLine="true"
+				android:text="Home"
+				android:textSize="17sp"
+				android:layout_marginLeft="12dp"
+				android:textColor="@color/_blue"
+				android:textStyle="bold"
+				android:layout_alignParentLeft="true"
+				android:padding="3dp"/>
+
+			<TextView
+				android:id="@+id/file_path_text"
+				android:layout_width="210dp"
+				android:layout_height="wrap_content"
+				android:singleLine="true"
+				android:textSize="8sp"
+				android:textColor="@color/_blue"
+				android:layout_below="@+id/file_name_text"
+				android:layout_alignParentLeft="true"
+				android:layout_marginLeft="18dp"
+				android:padding="3dp"/>
+
+			<TextView
+				android:id="@+id/char_count"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="9sp"
+				android:textColor="@color/_blue"
+				android:layout_alignParentRight="true"
+				android:layout_marginTop="14dp"
+				android:layout_marginRight="33dp"
+				android:padding="3dp"/>
+
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="3dp"
+				android:background="@drawable/file_background"
+				android:layout_alignParentBottom="true"/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:id="@+id/line"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:background="@color/gray"
+			android:padding="2dp"
+			android:layout_below="@+id/mainRelativeLayout">
+
+			<TextView
+				android:id="@+id/cnt"
+				android:text="1"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:textSize="18sp"
+				android:textColor="@color/_blue"
+				android:layout_alignParentLeft="true"/>
+
+		</RelativeLayout>
+		<HorizontalScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@+id/mainRelativeLayout"
+			android:layout_toRightOf="@+id/line"
+		>
+		<EditText
+			android:id="@+id/mainEditText"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:textSize="18sp"
+			android:gravity="top"
+			android:paddingLeft="10dp"
+			android:textColor="#473E3E"
+			android:background="@drawable/background"/>
+		
+
+		</HorizontalScrollView>
+	</RelativeLayout>
+	
+
+</ScrollView>
+

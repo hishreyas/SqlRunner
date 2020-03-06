@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="10dp"
+	android:orientation="vertical"
+	android:background="@color/white">
+
+	<RelativeLayout
+		android:id="@+id/field_one"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="6dp">
+
+		<TextView
+			android:id="@+id/db_label"
+			android:padding="4dp"
+			android:text="Database name"
+			android:textColor="@color/dark_blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"/>
+
+		<EditText
+			android:layout_below="@+id/db_label"
+			android:id="@+id/db_name"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:padding="5dp"
+			android:background="@color/gray"
+			android:textColor="@color/_blue"
+			/>
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/field_two"
+		android:layout_below="@+id/field_one"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="6dp">
+
+		<TextView
+			android:id="@+id/host_label"
+			android:padding="4dp"
+			android:text="Host string"
+			android:textColor="@color/dark_blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"/>
+
+		<EditText
+			android:layout_below="@+id/host_label"
+			android:id="@+id/host_name"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:padding="5dp"
+			android:background="@color/gray"
+			android:textColor="@color/_blue"
+	       />
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/field_three"
+		android:layout_below="@+id/field_two"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="6dp">
+
+		<TextView
+			android:id="@+id/user_label"
+			android:padding="4dp"
+			android:text="User name"
+			android:textColor="@color/dark_blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"/>
+
+		<EditText
+			android:layout_below="@+id/user_label"
+			android:id="@+id/user_name"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:padding="5dp"
+			android:background="@color/gray"
+			android:textColor="@color/_blue"
+			/>
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/field_four"
+		android:layout_below="@+id/field_three"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="6dp">
+
+		<TextView
+			android:id="@+id/pass_label"
+			android:padding="4dp"
+			android:text="Password"
+			android:textColor="@color/dark_blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"/>
+
+		<EditText
+			android:layout_below="@+id/pass_label"
+			android:id="@+id/pass"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:padding="5dp"
+			android:textColor="@color/_blue"
+			android:background="@color/gray"
+			android:inputType="textPassword"
+			/>
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_marginTop="9dp"
+		android:id="@+id/field_five"
+		android:layout_below="@+id/field_four"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true">
+
+		<Button
+			android:id="@+id/save"
+			android:text="Save"
+			android:textColor="@color/_blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@color/gray"/>
+
+	</RelativeLayout>
+
+</RelativeLayout>
+

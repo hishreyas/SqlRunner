@@ -1,0 +1,58 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+        android:id="@+id/connection_indicator"
+        android:title="indicator"
+		android:icon="@drawable/ic_fiber_manual_record_black_24dp"
+		android:showAsAction="always"/>
+	<item
+        android:id="@+id/home"
+        android:title="home"
+		android:icon="@drawable/ic_home_white_24dp"
+		android:showAsAction="always"/>
+	
+
+	<item
+        android:id="@+id/save_file"
+        android:title="save"
+		android:icon="@drawable/ic_description_white_24dp"
+		android:showAsAction="always"/>
+	
+    <item
+        android:id="@+id/run"
+        android:title="run"
+		android:icon="@drawable/ic_chevron_right_white_36dp"
+		android:showAsAction="always"/>
+	
+	
+    <item
+        android:id="@+id/new_file"
+        android:title="New File"
+		android:showAsAction="never"
+		/>
+	<item
+        android:id="@+id/open_file"
+        android:title="Open File"
+		android:showAsAction="never"
+		/>
+	<item
+        android:id="@+id/save_file_option"
+        android:title="Save"
+		android:showAsAction="never"
+	/>
+	<item
+        android:id="@+id/recent_files"
+        android:title="Recents Files"
+		android:showAsAction="never"
+	/>
+	<item
+        android:id="@+id/settings"
+        android:title="Settings"
+		android:showAsAction="never"
+	/>
+	<item
+        android:id="@+id/about"
+        android:title="About"
+		android:showAsAction="never"
+	/>
+	
+</menu>

@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+	<item
+        android:id="@+id/select_all"
+		android:title="select all"
+		android:icon="@drawable/ic_select_all_white_24dp"
+		android:showAsAction="always"/>
+	
+	<item
+        android:id="@+id/copy"
+		android:title="copy"
+		android:icon="@drawable/ic_content_copy_white_24dp"
+		android:showAsAction="always"/>
+	<item
+        android:id="@+id/cut"
+		android:title="cut"
+		android:icon="@drawable/ic_content_cut_white_24dp"
+		android:showAsAction="always"/>
+	<item
+        android:id="@+id/paste"
+		android:title="paste"
+		android:icon="@drawable/ic_content_paste_white_24dp"
+		android:showAsAction="always"/>
+	
+    
+</menu>

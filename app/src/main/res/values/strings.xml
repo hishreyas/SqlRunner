@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PostgreSql Runner</string>
+	<string name="editor">Editor</string>
+	<string name="output_title">Output</string>
+	<string name="about_title">About</string>
+	<string name="setting_title">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
