@@ -32,5 +32,12 @@ You can create txt files and save the sql queries in that files for later use
  ![Screenshot](https://github.com/sanedroid6006/SqlRunner/blob/master/screenshot/Screenshot_20200518-110702_PostgreSql_Runner.png)
   
  
+##### Perform Query and see output
 
+query:
 
+ ![Screenshot](https://github.com/sanedroid6006/SqlRunner/blob/master/screenshot/Screenshot_20200518-110702_PostgreSql_Runner.png)
+  
+output:
+
+ ![Screenshot](https://github.com/sanedroid6006/SqlRunner/blob/master/screenshot/Screenshot_20200518-110702_PostgreSql_Runner.png)
