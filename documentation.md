@@ -2,16 +2,16 @@
  
  # PostgreSQL RUNNER
 
-The PostgreSQL RUNNER is an Android Application which can do query to database specially designed for student.
-
+The PostgreSQL RUNNER is an Android Application which can perform sql query to database specially designed for student.
+Simple user interface makes it simple to use,You can store your sql query in text file and retrive them whenever you want
 ---
 ## Easy to use 
-
- ![Logo](https://github.com/sanedroid6006/SqlRunner/blob/master/screenshot/Screenshot_20200518-105857_PostgreSql_Runner.png)
+ The Simple Editor makes things easy for you by 
+ watching exact position of character and line 
+ one can debug or trace error easily.
  
- The Simple Editor makes things easy for you By Seeing exact position of character and line 
- one debug or trace error easily
+![Logo](https://github.com/sanedroid6006/SqlRunner/blob/master/screenshot/Screenshot_20200518-105857_PostgreSql_Runner.png)
  
-
+ 
 
 
