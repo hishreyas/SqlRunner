@@ -49,9 +49,7 @@ public class MainActivity extends Activity
 	TextView path_name;
 	TextView file_name;
 	TextView character_count;
-	//Runtime runtime;
 	String before="";
-	//Process process;
 	ClipboardManager cp;
 	Dialog dia;
 	File file=null;
@@ -64,6 +62,7 @@ public class MainActivity extends Activity
 	ArrayList<String> list;
 	Intent intent;
 	String last_file_path;
+	Menu menu;
 
 	
 	
@@ -73,13 +72,13 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-		mEditText=(EditText) findViewById(R.id.mainEditText);
-		root=(RelativeLayout)findViewById(R.id.rootRelativeLayout);
-		output=(TextView)findViewById(R.id.mainTextView);
-		countline=(TextView)findViewById(R.id.cnt);
-		path_name=(TextView)findViewById(R.id.file_path_text);
-		file_name=(TextView)findViewById(R.id.file_name_text);
-		character_count=(TextView)findViewById(R.id.char_count);
+		mEditText=findViewById(R.id.mainEditText);
+		root=findViewById(R.id.rootRelativeLayout);
+		output=findViewById(R.id.mainTextView);
+		countline=findViewById(R.id.cnt);
+		path_name=findViewById(R.id.file_path_text);
+		file_name=findViewById(R.id.file_name_text);
+		character_count=findViewById(R.id.char_count);
 		cp=(ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
 		draw=this.getResources(). getDrawable(R.drawable.ic_fiber_manual_record_black_24dp);
 		dia=new Dialog(this);
@@ -92,7 +91,9 @@ public class MainActivity extends Activity
 		last_file_path=msharedperf.getString("last_file",last_file_path);
 		initdata();
 		initmenu();
+		
 		this.setTitleColor(Color.WHITE);
+		
 		if(mDbConnection==null)
 		{
 			draw.setTint(Color.RED);
@@ -207,14 +208,23 @@ public class MainActivity extends Activity
 		if(requestCode==1)
 		{
 			String path;
-			path=Environment.getExternalStorageDirectory().toString()+"/"+data.getData().getPath().substring(16);
-			 
-			path_name.setText("path:"+path);
-			file_name.setText(data.getData().getLastPathSegment());
-			addlist(file_name.getText().toString());
-			file=new File(path);
+			path=Environment.getExternalStorageDirectory().toString()+"/"+data.getData().getPath().substring(data.getData().getPath().indexOf(':')+1);
 			
-			getcontent(file);
+			path_name.setText("path:"+path);
+			
+			
+			file=new File(path);
+			if(file!=null)
+			{
+				file_name.setText(file.getName());
+				getcontent(file);
+			}
+			else
+			{
+				homedata();
+			}
+			
+			
 		
 		}
 		
@@ -226,10 +236,13 @@ public class MainActivity extends Activity
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		
-	    
+	   
 		getMenuInflater().inflate(R.menu.settings,menu);
-	
-		
+		this.menu=menu;
+		if(file_name.getText().toString().equals("Home"))
+		{
+			showHome(false);
+		}
 		// TODO: Implement this method
 		return true;
 	}
@@ -241,30 +254,29 @@ public class MainActivity extends Activity
 		switch(item.getItemId())
 		{
 			case R.id.run:
+
 				if(mDbConnection!=null)
 				{
 					    
 						intent = new Intent(MainActivity.this, QueryResult.class);
 						intent.putExtra("query",mEditText.getText().toString());
 						startActivity(intent);
-					    recreate();
-					
+					    draw.setTint(Color.GREEN);
+					    menu.findItem(R.id.connection_indicator).setIcon(draw);
 					
 				}
 				else
 				{
 					
 					draw.setTint(Color.RED);
-					
-					recreate();
+					menu.findItem(R.id.connection_indicator).setIcon(draw);
 					ShowMessege("Invalid Credentials To Connect Database");
 				}
+				
+				
 				break;
 				
 			case  R.id.connection_indicator:
-				
-				
-			
 				
 				break;
 				
@@ -280,6 +292,7 @@ public class MainActivity extends Activity
 				if(file!=null)
 				{
 					save_file(file);
+					
 				}
 				else
 				{
@@ -296,8 +309,7 @@ public class MainActivity extends Activity
 				{
 					getlist();
 					listRecents();
-							}
-				
+				}
 				
 				break;
 				
@@ -326,26 +338,10 @@ public class MainActivity extends Activity
 				}
 					break;
 			case R.id.home:
-				mEditText.setText(defaultstr);
-				mEditText.setSelection(defaultstr.length());
-				character_count.setText("Total Characters: "+mEditText.getText().toString().length() +" "+"\n"+" Position: "+mEditText.getSelectionStart());
-				countline.setText(getlines(defaultstr));
-				file_name.setText("Home");
-				path_name.setText("path: "+Environment.getExternalStorageDirectory().toString()+"/"+"SqlRunner"+"/");
-				editor.putString("last_file",null);
-				editor.apply();
+				homedata();
+			    showHome(false);
 				break;
-		//case R.id.save:
-				//output.setText(command(mEditText.getText().toString()));
-
-
-				//break;
-
-			//case R.id.connect:
-
-				//initconnection();
-				//break;	
-
+		
 			default:
 
 
@@ -510,7 +506,7 @@ public class MainActivity extends Activity
 		d.setTitle("Create New File");
 		d.create();
 		d.show();
-		final EditText t=(EditText)d.findViewById(R.id.file_name);
+		final EditText t=d.findViewById(R.id.file_name);
 		
 		d.setOnKeyListener(new Dialog.OnKeyListener(){
 
@@ -593,12 +589,15 @@ public class MainActivity extends Activity
 
 
 				}
-			    mEditText.setText(content);
+				
+				mEditText.setText(content);
 				countline.setText(getlines(content));
 				mEditText.setSelection(mEditText.getText().toString().length());
 				character_count.setText("Total Characters: "+mEditText.getText().toString().length() +" "+"\n"+" Position: "+mEditText.getSelectionStart());
 				editor.putString("last_file",f.getPath());
 				editor.apply();
+				showHome(true);
+			    
 			}
 			catch (IOException e)
 			{
@@ -643,7 +642,7 @@ public class MainActivity extends Activity
 		dia.create();
 		dia.show();
 		
-		ListView list_view=(ListView)dia.findViewById(R.id.recents_list);
+		ListView list_view=dia.findViewById(R.id.recents_list);
 		
 		
 			ArrayAdapter<String> adaoter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,list);
@@ -729,6 +728,30 @@ public class MainActivity extends Activity
 			
 		
 	}
+	public void homedata()
+	{
+		mEditText.setText("");
+		file_name.setText("Home");
+		path_name.setText("path: "+Environment.getExternalStorageDirectory().toString()+"/"+"SqlRunner"+"/");
+		if(defaultstr!=null)
+		{
+			defaultstr=msharedperf.getString("Defaults",defaultstr); 
+			mEditText.setText(defaultstr);
+			mEditText.setSelection(defaultstr.length());
+			character_count.setText("Total Characters: "+mEditText.getText().toString().length() +" "+"\n"+" Position: "+mEditText.getSelectionStart());
+			countline.setText(getlines(defaultstr));
+			editor.putString("last_file",null);
+			editor.apply();
+		}
+	}
+	public void showHome(boolean flag)
+	{
+		if(menu!=null)
+		{
+			menu.findItem(R.id.home).setVisible(flag);
+			
+		}
+	}
 	static void initdata()
 	{
 	DBNAME=msharedperf.getString("db",null);
@@ -744,7 +767,11 @@ public class MainActivity extends Activity
 	{
 		try
 		{
-			mDbConnection.getconn().close();
+			if(mDbConnection!=null)
+			{
+				mDbConnection.getconn().close();
+			}
+			
 		}
 		catch (SQLException e)
 		{
@@ -753,42 +780,10 @@ public class MainActivity extends Activity
 		// TODO: Implement this method
 		super.onDestroy();
 	}
-
-	
-
-	
-	
-	
-	/*private String command(String s)
-	{
-		String temp =" ";
-		StringBuilder string =new StringBuilder();
-		
-		runtime=runtime.getRuntime();
-		try
-		{
-			process = runtime.exec(s,null,Environment.getRootDirectory());
-			
-			BufferedReader reader=new BufferedReader(new InputStreamReader(process.getInputStream()));
-			while((temp=reader.readLine())!=null)
-				string.append(temp+"\n");
-			try
-			{
-				process.waitFor();
-				process.destroy();
-			}
-			catch (InterruptedException e)
-			{}
-
-		}
-		catch (IOException e)
-		{
-			 string.append( e.getLocalizedMessage());
-		}
-
-		return string.toString();
 	}
-		
-		*/
+
 	
-}
+
+	
+	
+	

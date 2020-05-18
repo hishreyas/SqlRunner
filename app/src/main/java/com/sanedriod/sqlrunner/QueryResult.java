@@ -43,9 +43,17 @@ public class QueryResult extends Activity
 		{
 			
 			desc.setText(db.mQuery.getDescription(query));
-			desc.setText(desc.getText() +"\n" +db.mQuery.getWarnings(query));
-			result = db.mQuery.getData(query);
-			tc.DisplayTable(result,db.mQuery.getRowCount(),db.mQuery.getColumnCount());
+			
+			
+			if(query.toLowerCase().contains("select"))
+			{
+				result = db.mQuery.getData(query);
+				desc.setText(desc.getText() +"\n" +db.mQuery.getWarnings(query));
+				tc.DisplayTable(result,db.mQuery.getRowCount(),db.mQuery.getColumnCount());
+				
+			}
+			
+			
 			
 		}
 		catch (SQLException e)
