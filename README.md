@@ -40,4 +40,4 @@ query:
   
 output:
 
- ![Screenshot](https://github.com/sanedroid6006/SqlRunner/blob/master/screenshot/Screenshot_20200518-110702_PostgreSql_Runner.png)
+ ![Screenshot](https://github.com/sanedroid6006/SqlRunner/blob/master/screenshot/Screenshot_20200518-132749_PostgreSql_Runner.png)
