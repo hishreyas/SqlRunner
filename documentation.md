@@ -1,4 +1,4 @@
- ![Logo](/SqlRunner/logo/logo.jpg)  
+ ![Logo](https://github.com/sanedroid6006/SqlRunner/blob/master/logo/logo.jpg)  
 #        PostgreSQL RUNNER #
 
 
