@@ -9,7 +9,7 @@
   The Simple Editor makes things easy for you by 
   watching exact position of character and line 
   one can debug or trace error easily.
-![Screenshot](https://github.com/sanedroid6006/SqlRunner/blob/master/screenshot/Screenshot_20200518-105857_PostgreSql_Runner.png)
+![Screenshot](/logo/logo.png)
  ---
  ### Save your Sql Query
 
